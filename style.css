@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    font-size: 62.5%;
+}
+.timer {
+    max-width: 10%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 5%;
+}
+.timer p {
+    font-size: 10rem;
+}
+.controls button {
+    padding: 1rem 2rem;
+}
