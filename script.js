@@ -5,21 +5,36 @@ const startBtn = document.querySelector(".start");
 const resetBtn = document.querySelector(".reset");
 const input = document.querySelector(".min-box");
 // initial display
-let minutes = 25;
-let seconds = "00";
-
-if (minutes >= 0 && minutes < 10) {
-    minHolder.innerHTML = "0" + minutes;
-} else {
-    minHolder.innerHTML = minutes;
-}
-secHolder.innerHTML = seconds;
-
+let minutes;
+let seconds;
 let myIntervalID;
+function initialState() {
+    minutes = 25;
+    seconds = 0;
+    placeHolderTime();
+}
+function placeHolderTime() {
+    if (minutes >= 0 && minutes < 10) {
+        minHolder.innerHTML = "0" + minutes;
+    } else {
+        minHolder.innerHTML = minutes;
+    }
+    if (seconds >= 00 && seconds < 10) {
+        secHolder.innerHTML = "0" + seconds;
+    } else {
+        secHolder.innerHTML = seconds;
+    }
+}
+
+initialState();
+
 startBtn.addEventListener("click", () => {
     // start timer
-    if (input.value !== "" && Number(input.value) !== 0) {
-        minutes = Number(input.value);
+    let numInput = Number(input.value);
+    if (isNaN(numInput)) {
+        minutes = 25;
+    } else if (input.value !== "" && numInput > 0 && numInput <= 180) {
+        minutes = numInput;
     } else {
         minutes = 25;
     }
@@ -29,14 +44,7 @@ startBtn.addEventListener("click", () => {
 resetBtn.addEventListener("click", () => {
     // reset timer
     clearInterval(myIntervalID);
-    minutes = 25;
-    seconds = "00";
-    if (minutes >= 0 && minutes < 10) {
-        minHolder.innerHTML = "0" + minutes;
-    } else {
-        minHolder.innerHTML = minutes;
-    }
-    secHolder.innerHTML = seconds;
+    initialState();
 })
 function countdown() {
     // if the timer is on 00:00 then stop
@@ -50,16 +58,7 @@ function countdown() {
             minutes = minutes - 1;
             seconds = 59;
         }
-        if (minutes >= 0 && minutes < 10) {
-            minHolder.innerHTML = "0" + minutes;
-        } else {
-            minHolder.innerHTML = minutes;
-        }
-        if (seconds >= 00 && seconds < 10) {
-            secHolder.innerHTML = "0" + seconds;
-        } else {
-            secHolder.innerHTML = seconds;
-        }
+        placeHolderTime();
     }
 
 }
