@@ -4,17 +4,45 @@
     box-sizing: border-box;
 }
 html, body {
-    font-size: 62.5%;
+    font-family: 'Open Sans', sans-serif;
+}
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #567189;
+    color: white;
+}
+h1 {
+    font-size: 1.8rem;
+}
+.container {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 .timer {
-    max-width: 10%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin-bottom: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid white;
+    border-radius: 50%;
+    font-size: 3rem;
+    width: 12rem;
+    height: 12rem;
 }
-.timer p {
-    font-size: 10rem;
+.controls {
+    border: 2px solid white;
+    padding: 0.3rem 1.3rem;
+    border-radius: 5em;
 }
 .controls button {
-    padding: 1rem 2rem;
+    background-color: #567189;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    font-size: 1.1rem;
 }
