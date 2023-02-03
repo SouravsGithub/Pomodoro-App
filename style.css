@@ -7,12 +7,13 @@ html, body {
     font-family: 'Open Sans', sans-serif;
 }
 body {
-    height: 100vh;
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #567189;
     color: white;
+    overflow: hidden;
 }
 h1 {
     font-size: 1.8rem;
