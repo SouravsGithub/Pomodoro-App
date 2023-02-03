@@ -30,21 +30,29 @@ initialState();
 
 startBtn.addEventListener("click", () => {
     // start timer
-    let numInput = Number(input.value);
-    if (isNaN(numInput)) {
-        minutes = 25;
-    } else if (input.value !== "" && numInput > 0 && numInput <= 180) {
-        minutes = numInput;
-    } else {
-        minutes = 25;
+    if (startBtn.innerText === "Start") {
+        let numInput = Number(input.value);
+        if (isNaN(numInput)) {
+            minutes = 25;
+        } else if (input.value !== "" && numInput > 0 && numInput <= 180) {
+            minutes = numInput;
+        } else {
+            minutes = 25;
+        }
+        seconds = 0;
+        myIntervalID = setInterval(countdown, 1000);
+        startBtn.innerText = "Stop";
+    } else if (startBtn.innerText === "Stop") {
+        clearInterval(myIntervalID);
     }
-    seconds = 0;
-    myIntervalID = setInterval(countdown, 1000);
+
 });
 resetBtn.addEventListener("click", () => {
     // reset timer
     clearInterval(myIntervalID);
     initialState();
+    startBtn.innerText = "Start";
+    input.value = "";
 })
 function countdown() {
     // if the timer is on 00:00 then stop
