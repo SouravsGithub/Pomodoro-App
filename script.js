@@ -18,8 +18,8 @@ secHolder.innerHTML = seconds;
 let myIntervalID;
 startBtn.addEventListener("click", () => {
     // start timer
-    if (input.value !== 0) {
-        minutes = input.value;
+    if (input.value !== "" && Number(input.value) !== 0) {
+        minutes = Number(input.value);
     } else {
         minutes = 25;
     }
