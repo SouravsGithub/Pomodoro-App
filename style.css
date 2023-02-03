@@ -7,6 +7,9 @@ html, body {
     font-family: 'Open Sans', sans-serif;
 }
 body {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     height: 90vh;
     display: flex;
     align-items: center;
