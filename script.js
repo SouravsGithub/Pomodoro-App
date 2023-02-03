@@ -3,7 +3,7 @@ const minHolder = document.querySelector(".minutes");
 const secHolder = document.querySelector(".seconds");
 const startBtn = document.querySelector(".start");
 const resetBtn = document.querySelector(".reset");
-
+const input = document.querySelector(".min-box");
 // initial display
 let minutes = 25;
 let seconds = "00";
@@ -18,6 +18,11 @@ secHolder.innerHTML = seconds;
 let myIntervalID;
 startBtn.addEventListener("click", () => {
     // start timer
+    if (input.value !== 0) {
+        minutes = input.value;
+    } else {
+        minutes = 25;
+    }
     seconds = 0;
     myIntervalID = setInterval(countdown, 1000);
 });
